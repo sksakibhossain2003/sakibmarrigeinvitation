@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#2D1622">
+  <meta name="description"
+    content="Wedding Invitation of Sakib Hossain & Nusrat Jahan — Friday, January 08, 2027 (After Jummah Namaz). A luxury interactive digital stationery experience.">
+  <title>Sakib & Nusrat — Wedding Invitation</title>
+
+  <!-- Google Fonts: Editorial Serifs, Royal Calligraphy, Clean Body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Background Ambient Floating Petals & Gold Dust Canvas -->
+  <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+
+  <!-- ========================================================================= -->
+  <!-- 1. GUEST VERIFICATION GATE                                                -->
+  <!-- ========================================================================= -->
+  <section id="guest-gate" class="guest-gate-overlay" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+    <div class="gate-backdrop"></div>
+    <div class="gate-card-wrapper">
+      <div class="gate-card">
+        <!-- Golden Corner Filigree SVGs -->
+        <div class="corner-ornament top-left"></div>
+        <div class="corner-ornament top-right"></div>
+        <div class="corner-ornament bottom-left"></div>
+        <div class="corner-ornament bottom-right"></div>
+
+        <div class="gate-monogram">
+          <span class="monogram-letter">S</span>
+          <span class="monogram-amp">&</span>
+          <span class="monogram-letter">N</span>
+        </div>
+
+        <div class="gate-header">
+          <p class="gate-eyebrow">ROYAL WEDDING INVITATION</p>
+          <h1 id="gate-title" class="gate-title">Please Enter Your Name</h1>
+          <p class="gate-subtitle">Enter your full name to unlock your personalized wedding invitation suite.</p>
+        </div>
+
+        <form id="guest-form" class="gate-form" novalidate autocomplete="off">
+          <div class="input-group">
+            <label for="guest-name-input" class="sr-only">Your Full Name</label>
+            <input type="text" id="guest-name-input" class="gate-input" placeholder="Enter your full name..."
+              autocomplete="off" value="" required>
+            <div class="input-underline"></div>
+          </div>
+
+          <!-- Online Checking Status Banner -->
+          <div id="gate-checking" class="gate-alert checking" style="display: none;" role="status">
+            <div class="gate-spinner"></div>
+            <div class="alert-content">
+              <strong>Verifying Guest Access Online...</strong>
+              <span>Checking cloud invitation database...</span>
+            </div>
+          </div>
+
+          <!-- Error Alert Banner -->
+          <div id="gate-error" class="gate-alert error" style="display: none;" role="alert">
+            <div class="alert-icon">✦</div>
+            <div class="alert-content">
+              <strong>Sorry, you are not on the guest list.</strong>
+              <span>Please verify the spelling or try your full formal name.</span>
+            </div>
+            <button type="button" id="try-again-btn" class="btn-text-link">Try Again</button>
+          </div>
+
+          <!-- Welcome Success Banner -->
+          <div id="gate-success" class="gate-alert success" style="display: none;" role="status">
+            <div class="alert-icon">✨</div>
+            <div class="alert-content">
+              <strong id="welcome-guest-name">Welcome, Honored Guest!</strong>
+              <span>Preparing your royal invitation stationery...</span>
+            </div>
+          </div>
+
+          <button type="submit" id="gate-submit-btn" class="btn-royal-gold">
+            <span class="btn-text">CONTINUE</span>
+            <span class="btn-gleam"></span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 2. 3D ENVELOPE & PAPER UNFOLDING STAGE                                    -->
+  <!-- ========================================================================= -->
+  <section id="envelope-stage" class="envelope-stage" aria-label="Wedding Envelope Ceremony">
+    <div class="envelope-scene">
+      <div class="envelope-container" id="envelope-container">
+
+        <!-- Background Shadow on Table Surface -->
+        <div class="envelope-shadow"></div>
+
+        <!-- The 3D Envelope Body -->
+        <div class="envelope-3d" id="envelope-3d">
+
+          <!-- Back Interior Lining of Envelope -->
+          <div class="envelope-back">
+            <div class="envelope-inner-pattern"></div>
+          </div>
+
+          <!-- The Folded Letter Paper Inside -->
+          <div class="envelope-letter" id="envelope-letter">
+            <div class="letter-preview">
+              <div class="letter-preview-crest">S &amp; N</div>
+              <p class="letter-preview-sub">Together With Their Families</p>
+              <h2 class="letter-preview-names">Sakib &amp; Nusrat</h2>
+              <p class="letter-preview-date">Friday, January 08, 2027 • After Jummah</p>
+            </div>
+          </div>
+
+          <!-- Lower Front Flap of Envelope -->
+          <div class="envelope-front-base">
+            <div class="envelope-crease-left"></div>
+            <div class="envelope-crease-right"></div>
+            <div class="envelope-crease-bottom"></div>
+          </div>
+
+          <!-- Top Triangular Flap with Wax Seal -->
+          <div class="envelope-flap-top" id="envelope-flap-top">
+            <div class="flap-outer">
+              <div class="flap-border-gold"></div>
+            </div>
+          </div>
+
+          <!-- The Embossed Gold Wax Seal -->
+          <div class="wax-seal" id="wax-seal" role="button" tabindex="0" aria-label="Tap wax seal to open invitation">
+            <div class="wax-seal-outer">
+              <div class="wax-seal-inner">
+                <span class="wax-seal-crest">S&amp;N</span>
+                <span class="wax-seal-ring"></span>
+              </div>
+            </div>
+            <div class="wax-seal-particles" id="seal-particles"></div>
+          </div>
+
+        </div>
+
+        <!-- Instruction Prompt -->
+        <div class="envelope-hint" id="envelope-hint">
+          <span class="hint-sparkle">✦</span>
+          <span class="hint-text">Tap the wax seal to open your invitation</span>
+          <span class="hint-sparkle">✦</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- PERSISTENT TOP UTILITY BAR (GUEST INFO & AUDIO CONTROLLER)                -->
+  <!-- ========================================================================= -->
+  <header class="top-nav-bar" id="top-nav-bar">
+    <div class="nav-guest-pill">
+      <span class="guest-indicator">✦</span>
+      <span class="guest-badge-text">Guest: <strong id="active-guest-label">Guest</strong></span>
+      <button type="button" id="change-guest-btn" class="btn-change-guest" title="Change Guest Name">Change</button>
+    </div>
+
+    <!-- Admin Manage Access Button (Visible only to Sakib Hossain) -->
+    <button type="button" id="admin-manage-btn" class="btn-admin-manage" style="display: none;" title="Manage Guest Access List" aria-haspopup="dialog">
+      <span class="admin-crown-icon">👑</span>
+      <span class="admin-btn-text">Manage Access</span>
+    </button>
+
+    <!-- Music Play/Pause Audio Toggle -->
+    <button type="button" id="music-toggle-btn" class="music-toggle-btn" aria-label="Toggle Wedding Music"
+      aria-pressed="false">
+      <div class="music-bars" id="music-bars">
+        <span class="bar bar-1"></span>
+        <span class="bar bar-2"></span>
+        <span class="bar bar-3"></span>
+        <span class="bar bar-4"></span>
+      </div>
+      <span class="music-label" id="music-label">Play Music</span>
+    </button>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- 3. MAIN INVITATION STATIONERY (FULL SCREEN 9:16 FOLIO)                    -->
+  <!-- ========================================================================= -->
+  <main id="invitation-app" class="invitation-app" style="display: none;">
+
+    <!-- Center Stationery Frame (9:16 ratio on mobile, elegant card on desktop) -->
+    <div class="invitation-folio-container">
+      <article class="invitation-sheet" id="invitation-sheet">
+
+        <!-- ==================== SECTION: HERO COVER ==================== -->
+        <section class="paper-section hero-section" id="section-hero">
+          <div class="paper-ornaments">
+            <div class="corner-gold tl"></div>
+            <div class="corner-gold tr"></div>
+            <div class="corner-gold bl"></div>
+            <div class="corner-gold br"></div>
+          </div>
+
+          <div class="hero-crest-container">
+            <div class="royal-wreath">
+              <svg viewBox="0 0 160 160" class="wreath-svg" aria-hidden="true">
+                <circle cx="80" cy="80" r="68" fill="none" stroke="url(#goldGrad)" stroke-width="1.5"
+                  stroke-dasharray="4 2" />
+                <circle cx="80" cy="80" r="74" fill="none" stroke="url(#goldGrad)" stroke-width="0.75" />
+                <defs>
+                  <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#ECC880" />
+                    <stop offset="50%" stop-color="#C5A059" />
+                    <stop offset="100%" stop-color="#936D2E" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              <div class="hero-crest-monogram">S &amp; N</div>
+            </div>
+          </div>
+
+          <p class="hero-family-intro scroll-reveal">TOGETHER WITH THEIR FAMILIES</p>
+
+          <div class="couple-names-wrap scroll-reveal">
+            <h1 class="couple-hero-title">Sakib <span class="hero-ampersand">&amp;</span> Nusrat</h1>
+          </div>
+
+          <div class="hero-divider scroll-reveal">
+            <span class="divider-line"></span>
+            <span class="divider-symbol">❦</span>
+            <span class="divider-line"></span>
+          </div>
+
+          <p class="hero-honor-text scroll-reveal">
+            request the pleasure of your company<br>
+            to celebrate their wedding
+          </p>
+
+          <!-- Formal Date & Time Display -->
+          <div class="date-hero-card scroll-reveal">
+            <div class="date-hero-day">08</div>
+            <div class="date-hero-details">
+              <div class="date-hero-month">JANUARY 2027</div>
+              <div class="date-hero-time">FRIDAY • AFTER JUMMAH NAMAZ</div>
+            </div>
+          </div>
+
+          <div class="scroll-down-cue">
+            <span class="cue-text">SCROLL TO CELEBRATE</span>
+            <div class="cue-arrow">
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== SECTION: COUNTDOWN ==================== -->
+        <section class="paper-section countdown-section scroll-reveal" id="section-countdown">
+          <div class="section-tag-wrap">
+            <span class="section-tag">COUNTDOWN TO FOREVER</span>
+          </div>
+          <h2 class="section-heading">Counting Every Moment</h2>
+          <p class="section-subheading">Until our paths unite into one sacred journey</p>
+
+          <div class="countdown-grid" id="countdown-grid">
+            <div class="countdown-card">
+              <div class="countdown-num" id="cd-days">00</div>
+              <div class="countdown-label">DAYS</div>
+            </div>
+            <div class="countdown-card">
+              <div class="countdown-num" id="cd-hours">00</div>
+              <div class="countdown-label">HOURS</div>
+            </div>
+            <div class="countdown-card">
+              <div class="countdown-num" id="cd-minutes">00</div>
+              <div class="countdown-label">MINUTES</div>
+            </div>
+            <div class="countdown-card">
+              <div class="countdown-num" id="cd-seconds">00</div>
+              <div class="countdown-label">SECONDS</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== SECTION: THE COUPLE ==================== -->
+        <section class="paper-section couple-section scroll-reveal" id="section-couple">
+          <div class="section-tag-wrap">
+            <span class="section-tag">THE BRIDE &amp; GROOM</span>
+          </div>
+          <h2 class="section-heading">Two Hearts, One Soul</h2>
+          <p class="section-subheading">Blessed by Allah and surrounded by the love of family</p>
+
+          <div class="couple-profiles-container">
+
+            <!-- Groom Card -->
+            <div class="couple-profile-card groom-card scroll-reveal">
+              <div class="profile-frame-wrap">
+                <div class="profile-gold-border"></div>
+                <img src="assets/groom.png" alt="Sakib Hossain - The Groom" class="profile-photo" loading="lazy">
+                <div class="profile-badge">GROOM</div>
+              </div>
+              <div class="profile-info">
+                <h3 class="profile-name">Sakib Hossain</h3>
+                <p class="profile-lineage">Son of Shafiqul Islam</p>
+                <blockquote class="profile-quote">
+                  "In Nusrat, I found not just my life partner, but my peace, my best friend, and my greatest blessing."
+                </blockquote>
+              </div>
+            </div>
+
+            <!-- Heart Floral Emblem -->
+            <div class="couple-heart-divider scroll-reveal">
+              <span class="heart-symbol">❦</span>
+            </div>
+
+            <!-- Bride Card -->
+            <div class="couple-profile-card bride-card scroll-reveal">
+              <div class="profile-frame-wrap">
+                <div class="profile-gold-border"></div>
+                <img src="assets/bride.jpg" alt="Nusrat Jahan - The Bride" class="profile-photo" loading="lazy">
+                <div class="profile-badge">BRIDE</div>
+              </div>
+              <div class="profile-info">
+                <h3 class="profile-name">Nusrat Jahan</h3>
+                <p class="profile-lineage">Daughter of Mr. &amp; Mrs. A. K. Jahan</p>
+                <blockquote class="profile-quote">
+                  "With Sakib, every day feels filled with laughter, grace, and an enduring warmth I cherish forever."
+                </blockquote>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ==================== SECTION: OUR STORY ==================== -->
+        <section class="paper-section story-section scroll-reveal" id="section-story">
+          <div class="section-tag-wrap">
+            <span class="section-tag">OUR SACRED JOURNEY</span>
+          </div>
+          <h2 class="section-heading">Written in the Heavens</h2>
+          <p class="section-subheading">How faith, family, and divine decree (Qadr) brought two souls together</p>
+
+          <!-- Islamic Quranic Ayat Card -->
+          <div class="islamic-verse-card scroll-reveal">
+            <div class="verse-bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+            <p class="verse-arabic" dir="rtl" lang="ar">
+              وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم
+              مَّوَدَّةً وَرَحْمَةً
+            </p>
+            <div class="verse-divider"><span>❦</span></div>
+            <blockquote class="verse-english">
+              "And among His signs is that He created for you mates from among yourselves, that you may dwell in
+              tranquility with them; and He has placed between you love and mercy."
+            </blockquote>
+            <cite class="verse-source">— Surah Ar-Rum (30:21)</cite>
+          </div>
+
+          <div class="timeline-container">
+            <div class="timeline-spine"></div>
+
+            <!-- Milestone 1: Proposal & Istikhara -->
+            <div class="timeline-item scroll-reveal">
+              <div class="timeline-marker">
+                <span class="marker-dot"></span>
+              </div>
+              <div class="timeline-card">
+                <span class="timeline-year">DIVINE QADR • ISTIKHARA</span>
+                <h3 class="timeline-title">Two Families, One Sacred Dua</h3>
+                <p class="timeline-text">
+                  Guided by parental blessings and sincere Istikhara prayers, our families crossed paths with hearts
+                  seeking Allah's guidance. What was decreed in the Heavens began its sacred journey on Earth with
+                  profound serenity.
+                </p>
+              </div>
+            </div>
+
+            <!-- Milestone 2: First Family Meeting -->
+            <div class="timeline-item scroll-reveal">
+              <div class="timeline-marker">
+                <span class="marker-dot"></span>
+              </div>
+              <div class="timeline-card">
+                <span class="timeline-year">THE FIRST MEETING • SUKOON</span>
+                <h3 class="timeline-title">A Meeting of Kindred Souls</h3>
+                <p class="timeline-text">
+                  In the warm, gracious presence of our elders, quiet conversations sparked an effortless calm (Sukoon).
+                  Beneath polite smiles lay shared values, mutual respect, and a tranquil understanding that our paths
+                  were destined to unite.
+                </p>
+              </div>
+            </div>
+
+            <!-- Milestone 3: The Family Blessing -->
+            <div class="timeline-item scroll-reveal">
+              <div class="timeline-marker">
+                <span class="marker-dot"></span>
+              </div>
+              <div class="timeline-card">
+                <span class="timeline-year">THE COMMITMENT • ALHAMDULILLAH</span>
+                <h3 class="timeline-title">Two Families Bound with Barakah</h3>
+                <p class="timeline-text">
+                  With grandparents' whispered du'as, traditional sweets shared among loved ones, and tears of
+                  gratitude, our formal commitment was sealed. A sacred arranged union where love wasn't merely found,
+                  but nurtured under parental prayers.
+                </p>
+              </div>
+            </div>
+
+            <!-- Milestone 4: The Sacred Nikah -->
+            <div class="timeline-item scroll-reveal">
+              <div class="timeline-marker">
+                <span class="marker-dot"></span>
+              </div>
+              <div class="timeline-card highlighted-timeline-card">
+                <span class="timeline-year">08 JANUARY 2027 • JUMMAH</span>
+                <h3 class="timeline-title">The Sacred Nikah (Qubool Hai)</h3>
+                <p class="timeline-text">
+                  On the most blessed day of the week, immediately after Friday Jummah namaz, we utter *"Qubool Hai"* to
+                  unite our lives in the sight of Allah. Together, we take our first steps on the journey toward Jannah.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ==================== SECTION: GALLERY ==================== -->
+        <section class="paper-section gallery-section scroll-reveal" id="section-gallery">
+          <div class="section-tag-wrap">
+            <span class="section-tag">CHERISHED MOMENTS</span>
+          </div>
+          <h2 class="section-heading">Memories in Frames</h2>
+          <p class="section-subheading">A glimpse into our fondest smiles and memories (Tap to expand)</p>
+
+          <div class="gallery-grid">
+            <figure class="gallery-card scroll-reveal" data-img="assets/gallery1.png"
+              data-caption="Hands held in eternal devotion — adorned in intricate bridal mehndi.">
+              <div class="gallery-thumb-wrap">
+                <img src="assets/gallery1.png" alt="Intimate hands and wedding rings" class="gallery-img"
+                  loading="lazy">
+                <div class="gallery-overlay">
+                  <span class="gallery-zoom-icon">⤢</span>
+                </div>
+              </div>
+              <figcaption class="gallery-caption">Sacred Promises</figcaption>
+            </figure>
+
+            <figure class="gallery-card scroll-reveal" data-img="assets/gallery2.png"
+              data-caption="Walking into our tomorrow, accompanied by fragrant flowers and gentle smiles.">
+              <div class="gallery-thumb-wrap">
+                <img src="assets/gallery2.png" alt="Couple walking in floral courtyard" class="gallery-img"
+                  loading="lazy">
+                <div class="gallery-overlay">
+                  <span class="gallery-zoom-icon">⤢</span>
+                </div>
+              </div>
+              <figcaption class="gallery-caption">Hand in Hand</figcaption>
+            </figure>
+
+            <figure class="gallery-card scroll-reveal" data-img="assets/gallery3.jpg"
+              data-caption="Handmade stationery sealed with love, gold foil, and scented wax.">
+              <div class="gallery-thumb-wrap">
+                <img src="assets/gallery3.jpg" alt="Wedding invitation details and wax seal" class="gallery-img"
+                  loading="lazy">
+                <div class="gallery-overlay">
+                  <span class="gallery-zoom-icon">⤢</span>
+                </div>
+              </div>
+              <figcaption class="gallery-caption">Royal Stationery</figcaption>
+            </figure>
+
+            <figure class="gallery-card scroll-reveal" data-img="assets/gallery4.png"
+              data-caption="The sacred Nikah ceremony at Al Hossain Jame Mosque, Dewliya Bari, right after Friday Jummah namaz.">
+              <div class="gallery-thumb-wrap">
+                <img src="assets/gallery4.png" alt="Al Hossain Jame Mosque, Dewliya Bari" class="gallery-img"
+                  loading="lazy">
+                <div class="gallery-overlay">
+                  <span class="gallery-zoom-icon">⤢</span>
+                </div>
+              </div>
+              <figcaption class="gallery-caption">Al Hossain Jame Mosque, Dewliya Bari</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <!-- ==================== SECTION: WISHES & WHATSAPP ==================== -->
+        <section class="paper-section wishes-section scroll-reveal" id="section-wishes">
+          <div class="section-tag-wrap">
+            <span class="section-tag">PRAYERS &amp; BLESSINGS</span>
+          </div>
+          <h2 class="section-heading">Send Your Warm Wishes</h2>
+          <p class="section-subheading">Your words mean the world to us. Your message will be sent directly to our
+            WhatsApp!</p>
+
+          <div class="wishes-box">
+            <form id="wishes-form" class="wishes-form">
+
+              <div class="form-field">
+                <label for="wish-sender-name" class="field-label">Your Name</label>
+                <input type="text" id="wish-sender-name" class="field-input" placeholder="Your full name..." required>
+              </div>
+
+              <div class="form-field">
+                <label for="wish-relation" class="field-label">Your Relationship</label>
+                <select id="wish-relation" class="field-select">
+                  <option value="Family">Beloved Family Member</option>
+                  <option value="Friend" selected>Cherished Friend</option>
+                  <option value="Colleague">Colleague &amp; Well-Wisher</option>
+                  <option value="Other">Guest of Honor</option>
+                </select>
+              </div>
+
+              <!-- Quick Sentiment Pills -->
+              <div class="quick-sentiments">
+                <span class="sentiment-label">Quick Duas &amp; Blessings:</span>
+                <div class="sentiment-chips">
+                  <button type="button" class="chip-btn"
+                    data-text="Barakallahu lakuma wa baraka alaykuma wa jama'a baynakuma fee khair! May Allah shower your sacred union with endless barakah, love, and laughter.">🤲
+                    Barakallahu Lakuma</button>
+                  <button type="button" class="chip-btn"
+                    data-text="Heartiest Mubarak to Sakib & Nusrat! May Allah grant you both endless Mawaddah, Sukoon, and lifelong companionship.">✨
+                    Mawaddah &amp; Sukoon</button>
+                  <button type="button" class="chip-btn"
+                    data-text="Blessed Friday wishes on your upcoming Nikah! May your home be filled with peace, light, and happiness always.">🤍
+                    Jummah Mubarak &amp; Dua</button>
+                  <button type="button" class="chip-btn"
+                    data-text="MashAllah! So thrilled to celebrate this sacred milestone with both families. Wishing you endless joy!">💖
+                    Joy &amp; Mubarak</button>
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="wish-message" class="field-label">Your Message for Sakib &amp; Nusrat</label>
+                <textarea id="wish-message" class="field-textarea" rows="4"
+                  placeholder="Write your prayers, advice, or heartfelt blessings here..." required></textarea>
+              </div>
+
+              <button type="submit" id="send-whatsapp-btn" class="btn-whatsapp">
+                <svg class="whatsapp-icon" viewBox="0 0 24 24" width="22" height="22" fill="currentColor"
+                  aria-hidden="true">
+                  <path
+                    d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.585 1.961.947 3.023.947 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.767-5.768-5.767zm7.551 5.766c-.001 4.167-3.39 7.557-7.557 7.557-1.328 0-2.574-.351-3.665-.968l-4.36 1.143 1.164-4.249c-.689-1.15-1.077-2.483-1.077-3.904.001-4.167 3.39-7.557 7.557-7.557 4.167 0 7.557 3.39 7.557 7.557z" />
+                </svg>
+                <span>Send Wishes via WhatsApp</span>
+              </button>
+
+            </form>
+
+            <!-- Live Guestbook Messages Wall -->
+            <div class="guestbook-wall">
+              <div class="guestbook-header-box">
+                <div class="live-indicator-pill">
+                  <span class="live-dot"></span>
+                  <span class="live-text">LIVE BLESSINGS</span>
+                </div>
+                <h3 class="guestbook-title">
+                  <span>✦</span> Wedding Blessings Wall <span>✦</span>
+                </h3>
+                <p class="guestbook-count-badge" id="wishes-count-badge">✦ Be the First to Send Blessings ✦</p>
+              </div>
+              <div id="wishes-list" class="wishes-cards-list">
+                <!-- Dynamically injected wishes -->
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ==================== SECTION: FOOTER ==================== -->
+        <footer class="paper-section footer-section scroll-reveal" id="section-footer">
+          <div class="footer-crests">
+            <span class="footer-monogram">S &amp; N</span>
+          </div>
+          <h2 class="footer-title">With Love &amp; Gratitude</h2>
+          <p class="footer-note">
+            Your prayers, warm presence, and blessings make our special day complete. We cannot wait to celebrate this
+            milestone together.
+          </p>
+          <div class="footer-date-tag">
+            <span>JANUARY 08, 2027 • FRIDAY</span>
+          </div>
+          <div class="footer-signature">
+            <p>Sakib Hossain &amp; Nusrat Jahan</p>
+            <small>Together with the Hossain &amp; Jahan Families</small>
+          </div>
+        </footer>
+
+      </article>
+    </div>
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- ADMIN ACCESS CONTROL MODAL (GROOM EXCLUSIVE)                              -->
+  <!-- ========================================================================= -->
+  <div id="admin-modal" class="admin-modal" role="dialog" aria-modal="true" aria-labelledby="admin-modal-title" style="display: none;">
+    <div class="admin-modal-backdrop" id="admin-modal-backdrop"></div>
+    <div class="admin-modal-card">
+      <div class="admin-modal-header">
+        <div class="admin-title-wrap">
+          <span class="admin-badge-icon">👑</span>
+          <div>
+            <h2 id="admin-modal-title" class="admin-title">Guest Access Management</h2>
+            <p class="admin-subtitle">Groom Admin Console • Sakib Hossain</p>
+          </div>
+        </div>
+        <button type="button" id="admin-modal-close-btn" class="admin-close-btn" aria-label="Close Admin Modal">✕</button>
+      </div>
+
+      <div class="admin-modal-body">
+        <!-- Online Cloud Status Bar -->
+        <div class="admin-cloud-bar">
+          <div class="cloud-status-left">
+            <span class="cloud-pulse-dot" id="cloud-status-dot"></span>
+            <span class="cloud-status-text" id="cloud-status-text">Cloud Sync: Connecting...</span>
+          </div>
+          <div class="cloud-actions-right">
+            <button type="button" id="admin-cloud-sync-btn" class="btn-cloud-sync" title="Sync latest guests with online cloud">
+              <span class="sync-icon">🔄</span> <span class="sync-label">Sync</span>
+            </button>
+            <button type="button" id="admin-cloud-settings-toggle" class="btn-cloud-settings-toggle" title="Cloud Database Settings" aria-expanded="false">
+              ⚙️ Cloud Settings
+            </button>
+          </div>
+        </div>
+
+        <!-- Expandable Cloud Settings Drawer -->
+        <div id="admin-cloud-settings-drawer" class="admin-cloud-settings-drawer" style="display: none;">
+          <div class="cloud-settings-inner">
+            <div class="cloud-settings-header">
+              <h4 class="cloud-settings-title">☁️ Custom Online Cloud Database</h4>
+            </div>
+            <p class="cloud-settings-desc">
+              By default, guest access synchronizes across all devices via the built-in online cloud. You can also connect your own private <strong>Firebase Realtime Database</strong> (<code>https://your-project.firebaseio.com/guests.json</code>) or Google Apps Script.
+            </p>
+            <div class="cloud-input-row">
+              <input type="url" id="admin-custom-cloud-url" class="admin-input cloud-url-input" placeholder="https://your-project.firebaseio.com/guests.json">
+              <div class="cloud-btn-row">
+                <button type="button" id="admin-save-cloud-url-btn" class="btn-cloud-save">Save &amp; Sync</button>
+                <button type="button" id="admin-reset-cloud-url-btn" class="btn-cloud-reset-default">Reset to Default</button>
+              </div>
+            </div>
+            <div id="admin-cloud-feedback" class="admin-feedback" style="display: none;"></div>
+          </div>
+        </div>
+
+        <p class="admin-desc">
+          Only guests whose names are on this list can unlock and view your wedding invitation. Added guests can immediately access from any mobile phone or device.
+        </p>
+
+        <!-- Add Guest Input Form -->
+        <form id="admin-add-guest-form" class="admin-add-form" autocomplete="off">
+          <div class="admin-input-row">
+            <input type="text" id="admin-new-guest-input" class="admin-input" placeholder="Enter guest full name (e.g. Salman Khan)..." autocomplete="off" required>
+            <button type="submit" id="admin-add-btn" class="btn-admin-add">
+              <span>+ Add Name</span>
+            </button>
+          </div>
+          <div id="admin-feedback" class="admin-feedback" style="display: none;"></div>
+        </form>
+
+        <!-- Guest List Header & Count -->
+        <div class="admin-list-header">
+          <span class="admin-list-title">Authorized Guest Access List</span>
+          <span id="admin-guest-count" class="admin-count-badge">0 Guests</span>
+        </div>
+
+        <!-- Scrollable Guest Access List -->
+        <div id="admin-guests-container" class="admin-guests-container">
+          <!-- Dynamically populated guest cards -->
+        </div>
+
+        <!-- Footer Actions -->
+        <div class="admin-modal-footer">
+          <div class="admin-footer-left">
+            <button type="button" id="admin-reset-defaults-btn" class="btn-admin-reset" title="Reset to original guest list">
+              Reset Defaults
+            </button>
+            <button type="button" id="admin-copy-json-btn" class="btn-admin-copy-json" title="Copy guest list as JSON to paste into guests.json">
+              📋 Copy guests.json
+            </button>
+          </div>
+          <button type="button" id="admin-done-btn" class="btn-admin-done">
+            Done
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- LIGHTBOX MODAL                                                            -->
+  <!-- ========================================================================= -->
+  <div id="lightbox-modal" class="lightbox-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+    <div class="lightbox-content">
+      <button type="button" id="lightbox-close-btn" class="lightbox-close" aria-label="Close Lightbox">✕</button>
+      <img id="lightbox-image" src="" alt="Enlarged gallery photo" class="lightbox-img">
+      <p id="lightbox-caption" class="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <!-- Audio Element for Wedding Soundtrack -->
+  <audio id="wedding-audio" loop preload="auto">
+    <source src="assets/music.mp3" type="audio/mp3">
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
