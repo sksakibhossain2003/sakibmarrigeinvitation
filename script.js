@@ -10,7 +10,7 @@
 // --------------------------------------------------------------------------
 const wedding = {
   groom: "Sakib Hossain",
-  bride: "Nusrat Jahan",
+  bride: "Mim",
   date: "January 8, 2027",
   time: "Friday, After Jummah Namaz (2:00 PM)",
   venue: "Al Hossain Jame Mosque",
@@ -43,20 +43,6 @@ let lastCloudSyncTime = null;
 // Default Invited Guests & VIPs (Restorable by Sakib Hossain)
 const DEFAULT_GUEST_ACCESS_LIST = [
   "Sakib Hossain",
-  "Nusrat Jahan",
-  "Rifat",
-  "Shafiqul Islam",
-  "Rahim Ahmed",
-  "Karim Hossain",
-  "Farhana Jahan",
-  "Tanvir Ahmed",
-  "Rafiq Islam",
-  "Amina Begum",
-  "Zubair Ahmed",
-  "Mahmudul Hasan",
-  "Nasrin Akter",
-  "Fahim Rahman",
-  "Sumaiya Islam"
 ];
 
 // Real guestbook wishes array (No random dummy blessings)
